@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Main{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Központi adminisztrációs oldal</h1>
+    <div>
+    <h3>Felhasználó név: {{ app.user.username }}</h3>
+    <h3>Szerepek:</h3>
+        <ul>
+        {% for item in app.user.roles %}
+            <h3>{{ item }}</h3>
+        {% endfor %}
+        </ul>
+        <h3>Utolsó belépés: {{ lastLogin }}</h3>
+
+    </div>
+    <div>
+        {% if app.user %}
+        <ul id="navigation">
+            {% for item in menus %}
+                <li><a href="{{ path(item.name) }}">{{ item.desc }}</a></li>
+            {% endfor %}
+        </ul>
+            <a href="{{ path('app_logout') }}">Logout</a>
+         {% endif %}
+    </div>
+
+
+{% endblock %}
