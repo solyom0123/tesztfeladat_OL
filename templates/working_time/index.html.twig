@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WorkingTime index{% endblock %}
+
+{% block body %}
+    <h1>WorkingTime index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th> <a href="{{ path('working_time_index',{orderBy:'date'}) }}">Dátum</a></th>
+                <th><a href="{{ path('working_time_index',{orderBy:'name'}) }}">Dolgozó neve</a></th>
+                <th>Munkaidő kezdete</th>
+                <th>Munkaidő vége</th>
+                <th>Ledolgozott óra</th>
+                <th>Hétvégi pótlék</th>
+                <th>Műveletek</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for working_time in working_times %}
+            <tr>
+                <td>{{ working_time.date ? working_time.date|date('Y-m-d') : '' }}</td>
+                <td>{{ working_time.workerId.name }}</td>
+                <td>{{ working_time.start ? working_time.start|date('H:i:s') : '' }}</td>
+                <td>{{ working_time.end ? working_time.end|date('H:i:s') : '' }}</td>
+                <td>{{ working_time.inHour }}</td>
+                <td>{{ working_time.weekendBonus }}</td>
+                <td>
+                    <a href="{{ path('working_time_edit', {'id': working_time.id}) }}">edit</a>
+                    <a href="{{ path('working_time_delete', {'id': working_time.id}) }}">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('working_time_new') }}">Create new</a>
+{% endblock %}

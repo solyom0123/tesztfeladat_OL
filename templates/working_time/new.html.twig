@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New WorkingTime{% endblock %}
+
+{% block body %}
+    <h1>Create new WorkingTime</h1>
+
+    {{ include('working_time/_form.html.twig') }}
+
+    <a href="{{ path('working_time_index') }}">back to list</a>
+{% endblock %}

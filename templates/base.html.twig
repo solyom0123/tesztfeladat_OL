@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        {# {{ encore_entry_link_tags('app') }} #}
+    {% endblock %}
+
+    {% block javascripts %}
+        {# {{ encore_entry_script_tags('app') }} #}
+    {% endblock %}
+    <style>
+        table {
+            background-color: #f1f2f3;
+            padding: 10px;
+            border: 1px black solid;
+        }
+
+        th {
+            background-color: antiquewhite;
+            padding: 10px;
+            border: 1px black solid;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px black solid;
+        }
+
+        h1 {
+            color: burlywood;
+        }
+
+        body {
+            background-color: #e0e0e0;
+        }
+        a{
+            color: burlywood;
+            font-size: 30px;
+            font-min-size: 30px;
+        }
+    </style>
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>

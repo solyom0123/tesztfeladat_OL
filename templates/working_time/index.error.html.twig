@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WorkingTime index{% endblock %}
+
+{% block body %}
+    <h1>Hiányzó adat hiba</h1>
+
+    <h2>Kérem vigyen fel legalább egy dolgozót a funkció használata előtt</h2>
+
+    <a href="{{ path('worker_new') }}"><h3>Új dolgozó felvitele</h3></a>
+{% endblock %}
