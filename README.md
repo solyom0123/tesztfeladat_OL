@@ -13,7 +13,9 @@ Elinditani egy mysql szervert.
 
 4. lépés:
 a cmd-be a következő parancsokat futtasa le:
+
 cd [projekt elérési útja]/tesztfeladat_OL
+
 php bin/console doctrine:database:create
 
 5.lépés 
